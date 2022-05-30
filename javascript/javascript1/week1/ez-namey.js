@@ -23,10 +23,10 @@ const secondWords = [
   'department',
 ];
 
-const randomNumberFirstWords = Math.floor(Math.random() * 10);
-const randomNumberSecondWords = Math.floor(Math.random() * 10);
+const firstRandomNumber = Math.floor(Math.random() * 10);
+const secondRandomNumber = Math.floor(Math.random() * 10);
 
-let startupName = `${firstWords[randomNumberFirstWords]} ${secondWords[randomNumberSecondWords]}`;
+const startupName = `${firstWords[firstRandomNumber]} ${secondWords[secondRandomNumber]}`;
 
 console.log(
   `The startup: "${startupName}" contains ${startupName.length} characters.`

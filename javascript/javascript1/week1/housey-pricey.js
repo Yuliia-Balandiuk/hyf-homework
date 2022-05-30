@@ -1,17 +1,22 @@
-const wide = 5;
-const deep = 11;
-const high = 8;
-const gardenSizeInM2 = 70;
-const houseCosts = 1000000;
+const volumeInMeters = [8 * 10 * 10, 5 * 11 * 8];
+const gardenSizeInM2 = [100, 70];
+const houseCosts = [2500000, 1000000];
+const ownerNames = ['Peter', 'Julia'];
+const realHousePrice = [];
 
-let volumeInMeters = wide * deep * high;
-let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
-let amount = 'much';
-
-if (houseCosts < housePrice) {
-  amount = 'little';
+for (let i = 0; i < volumeInMeters.length; i++) {
+  realHousePrice[i] = volumeInMeters[i] * 2.5 * 1000 + gardenSizeInM2[i] * 300;
 }
 
-console.log(
-  `You are paying too ${amount}, because the real price is ${housePrice}.`
-);
+let amount;
+
+for (let i = 0; i < ownerNames.length; i++) {
+  if (houseCosts[i] < realHousePrice[i]) {
+    amount = 'little';
+  } else {
+    amount = 'much';
+  }
+  console.log(
+    `${ownerNames[i]} is paying too ${amount}, because the real price is ${realHousePrice[i]}.`
+  );
+}
