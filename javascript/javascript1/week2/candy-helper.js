@@ -40,6 +40,7 @@ function canBuyMoreCandy() {
       console.log(`You bought ${i} candies`);
     } else {
       console.log('Enough candy for you!');
+      break;
     }
   }
   return sum;
