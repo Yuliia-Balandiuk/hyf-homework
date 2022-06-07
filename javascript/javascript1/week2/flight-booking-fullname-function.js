@@ -1,7 +1,6 @@
-const male = 'Lord';
-const female = 'Lady';
-
 function getFullname(firstname, surname, useFormalName, gender) {
+  const male = 'Lord';
+  const female = 'Lady';
   if (
     (typeof firstname !== 'string' && typeof surname !== 'string') ||
     firstname === '' ||
@@ -22,3 +21,6 @@ const fullname2 = getFullname('Benjamin', 'Hughes', false, male);
 
 console.log(fullname1);
 console.log(fullname2);
+
+// what about addStudentToClass(' '); addStudentToClass(true);
+// the function should also return smth

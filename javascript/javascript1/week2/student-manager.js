@@ -1,5 +1,6 @@
-const class07Students = [];
 function addStudentToClass(studentName) {
+  const class07Students = [];
+
   if (class07Students.includes(studentName)) {
     console.log(`Student ${studentName} is already in the class`);
   } else {
