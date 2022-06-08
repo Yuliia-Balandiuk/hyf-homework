@@ -1,26 +1,42 @@
-const seriesDurations = [
-  {
-    title: 'Game of thrones',
-    days: 3,
-    hours: 1,
-    minutes: 0,
-  },
-  {
-    title: 'The Walking Dead',
-    days: 7,
-    hours: 23,
-    minutes: 018,
-  },
-  {
-    title: 'Breaking Bad',
-    days: 9,
-    hours: 21,
-    minutes: 48,
-  },
-];
-
 function logOutSeriesText() {
-  // write code here
+  const seriesDurations = [
+    {
+      title: 'Game of thrones',
+      days: 3,
+      hours: 1,
+      minutes: 0,
+    },
+    {
+      title: 'The Walking Dead',
+      days: 7,
+      hours: 23,
+      minutes: 18,
+    },
+    {
+      title: 'Breaking Bad',
+      days: 9,
+      hours: 21,
+      minutes: 48,
+    },
+  ];
+  const averageLife = 80;
+  // const daysToYears = seriesDurations.days / 365;
+  // const hoursToYears = seriesDurations.hours / 24 / 365;
+  // const minutesToYears = seriesDurations.minutes / 60 / 24 / 365;
+  let totalYears = 0;
+  for (let i = 0; i < seriesDurations.length; i++) {
+    let oneSeries =
+      ((seriesDurations[i].days / 365 +
+        seriesDurations[i].hours / 24 / 365 +
+        seriesDurations[i].minutes / 60 / 24 / 365) *
+        100) /
+      averageLife;
+    console.log(
+      `'${seriesDurations[i].title}' took ${+oneSeries.toFixed(2)}% of my life`
+    );
+    totalYears += +oneSeries.toFixed(2);
+  }
+  return console.log(`In total that is ${totalYears}% of my life`);
 }
 
 logOutSeriesText();

@@ -1,9 +1,8 @@
-const travelInformation = {
-  speed: 50,
-  destinationDistance: 432,
-};
-
 function getTravelTime() {
+  const travelInformation = {
+    speed: 50,
+    destinationDistance: 432,
+  };
   let time = travelInformation.destinationDistance / travelInformation.speed;
   let timeArr = time.toString().split('.');
   let hours = timeArr[0];
