@@ -14,7 +14,7 @@ function saveNote(content, id) {
 saveNote('Pick up groceries', 1);
 saveNote('Do laundry', 2);
 
-console.log(notes); // [{content: 'Pick up groceries', id: 1}, {content: 'Do laundry', id: 2}]
+console.log(notes);
 
 //Get a note
 
@@ -31,7 +31,7 @@ function getNote(id) {
 }
 
 const firstNote = getNote(1);
-console.log(firstNote); // {content: 'Pick up groceries', id: 1}
+console.log(firstNote);
 
 //Log out notes
 
@@ -44,10 +44,7 @@ function logOutNotesFormatted() {
 }
 
 logOutNotesFormatted();
-// The note with id: 1, has the following note text: Pick up groceries
-// The note with id: 2, has the following note text: Do laundry
 
-//TODO add Unique feature
 // feature allows you to update an existing note
 
 function updateNote(id, content) {
@@ -59,4 +56,4 @@ function updateNote(id, content) {
   }
 }
 
-updateNote(2, 'bla-bla-bla');
+updateNote(2, 'It is important!');

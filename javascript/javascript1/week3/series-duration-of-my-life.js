@@ -20,10 +20,8 @@ function logOutSeriesText() {
     },
   ];
   const averageLife = 80;
-  // const daysToYears = seriesDurations.days / 365;
-  // const hoursToYears = seriesDurations.hours / 24 / 365;
-  // const minutesToYears = seriesDurations.minutes / 60 / 24 / 365;
   let totalYears = 0;
+
   for (let i = 0; i < seriesDurations.length; i++) {
     let oneSeries =
       ((seriesDurations[i].days / 365 +
