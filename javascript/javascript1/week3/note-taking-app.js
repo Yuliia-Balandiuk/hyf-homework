@@ -48,3 +48,15 @@ logOutNotesFormatted();
 // The note with id: 2, has the following note text: Do laundry
 
 //TODO add Unique feature
+// feature allows you to update an existing note
+
+function updateNote(id, content) {
+  for (let i in notes) {
+    if (notes[i].id == id) {
+      notes[i].content += ` ${content}`;
+      break;
+    }
+  }
+}
+
+updateNote(2, 'bla-bla-bla');
