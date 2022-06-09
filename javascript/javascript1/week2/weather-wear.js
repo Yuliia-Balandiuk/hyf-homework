@@ -10,5 +10,5 @@ function showThatToWear(temperature) {
   }
 }
 
-const clothesToWear = showThatToWear(15);
+const clothesToWear = showThatToWear(25);
 console.log(clothesToWear);

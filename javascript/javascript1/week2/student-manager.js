@@ -1,23 +1,26 @@
+const class07Students = [];
 function addStudentToClass(studentName) {
-  const class07Students = [];
-
-  if (class07Students.includes(studentName)) {
-    console.log(`Student ${studentName} is already in the class`);
-  } else {
-    if (
-      (studentName !== '' && class07Students.length <= 5) ||
-      studentName === 'Queen'
-    ) {
-      class07Students.push(studentName);
-    } else if (class07Students.length >= 6) {
-      console.log('Cannot add more students to class 07');
+  if (typeof studentName === 'string' && studentName !== ' ') {
+    if (class07Students.includes(studentName)) {
+      console.log(`Student ${studentName} is already in the class`);
+    } else {
+      if (
+        (studentName !== '' && class07Students.length <= 5) ||
+        studentName === 'Queen'
+      ) {
+        class07Students.push(studentName);
+      } else if (class07Students.length >= 6) {
+        console.log('Cannot add more students to class 07');
+      }
     }
+  } else {
+    console.log('Please enter the correct data');
   }
 }
 
 addStudentToClass('Stas');
 addStudentToClass('Julia');
-addStudentToClass('');
+addStudentToClass(6);
 addStudentToClass('Bob');
 addStudentToClass('Bob');
 addStudentToClass('Mark');
