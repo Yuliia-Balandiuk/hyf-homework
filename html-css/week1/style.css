@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+body {
+  max-width: 980px;
+  margin: auto;
+  line-height: 1.5;
+  align-content: center;
+  font-family: 'Balsamiq Sans', cursive;
+}
+.photo {
+  height: 350px;
+  padding-top: 50px;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 30px;
+  margin-right: 70px;
+}
+
+.name h1 {
+  font-size: 2.5rem;
+}
+.contacts {
+  padding-top: 50px;
+}
+.info {
+  display: flex;
+}
+.strategies {
+  flex-basis: 450px;
+  margin-left: 120px;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer {
+  display: flex;
+  padding-left: 4%;
+  padding-right: 7%;
+  padding-bottom: 30px;
+  justify-content: space-around;
+  align-items: center;
+}
