@@ -3,16 +3,19 @@
 const notes = [];
 
 function saveNote(content, id) {
-  let obj = {
-    content: content,
-    id: id,
-  };
-  notes.push(obj);
-  return notes;
+  if (typeof content === 'string' && typeof id === 'number') {
+    let obj = {
+      content: content,
+      id: id,
+    };
+    notes.push(obj);
+    return notes;
+  }
+  return console.log('Please enter the correct data');
 }
 
-saveNote('Pick up groceries', 1);
-saveNote('Do laundry', 2);
+saveNote('Pick up groceries.', 1);
+saveNote('Do laundy.', 2);
 
 console.log(notes);
 
@@ -24,7 +27,7 @@ function getNote(id) {
   } else {
     for (let i = 0; i < notes.length; i++) {
       if (id === notes[i].id) {
-        return console.log(notes[i]);
+        return notes[i];
       }
     }
   }
@@ -47,13 +50,19 @@ logOutNotesFormatted();
 
 // feature allows you to update an existing note
 
-function updateNote(id, content) {
-  for (let i in notes) {
-    if (notes[i].id == id) {
-      notes[i].content += ` ${content}`;
-      break;
+function updateNote(content, id) {
+  if (typeof content === 'string' && typeof id === 'number') {
+    for (let i in notes) {
+      if (notes[i].id === id) {
+        notes[i].content += ` ${content}`;
+        break;
+      } else if (notes[i].id !== id) {
+        return console.log('You entered a non-existent word');
+      }
     }
+  } else {
+    return console.log('Please enter the correct data');
   }
 }
 
-updateNote(2, 'It is important!');
+updateNote('It is important!', 2);

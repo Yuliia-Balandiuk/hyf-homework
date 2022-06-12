@@ -11,5 +11,5 @@ function getTravelTime() {
   return `${hours} hour(s) and ${minutes} minute(s)`;
 }
 
-const travelTime = getTravelTime(travelInformation);
+const travelTime = getTravelTime();
 console.log(travelTime);
