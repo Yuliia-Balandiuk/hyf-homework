@@ -1,49 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap'); */
 body {
-  max-width: 980px;
+  max-width: 61.25rem;
   margin: auto;
   line-height: 1.5;
   align-content: center;
   font-family: 'Balsamiq Sans', cursive;
 }
 .photo {
-  height: 350px;
-  padding-top: 50px;
+  height: 22rem;
+  padding-top: 3rem;
 }
 
 .intro {
   display: flex;
   justify-content: space-between;
   height: 100%;
-  padding-top: 30px;
-  margin-right: 70px;
+  padding-top: 2rem;
+  margin-right: 4.5rem;
 }
 
-.name h1 {
+h1 {
   font-size: 2.5rem;
 }
 .contacts {
-  padding-top: 50px;
+  padding-top: 3rem;
 }
 .info {
   display: flex;
 }
 .strategies {
-  flex-basis: 450px;
-  margin-left: 120px;
-  margin-top: 30px;
+  flex-basis: 28rem;
+  margin-left: 7.5rem;
+  margin-top: 2rem;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #000;
 }
 
 .footer {
   display: flex;
-  padding-left: 4%;
-  padding-right: 7%;
-  padding-bottom: 30px;
+  padding-bottom: 2rem;
   justify-content: space-around;
   align-items: center;
 }
