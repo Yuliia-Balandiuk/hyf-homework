@@ -81,6 +81,15 @@ function getReply(command) {
       }, time * 6000);
       return `Timer set for ${time} minutes`;
     }
+    if (command.includes('What time is it?')) {
+      const date = new Date(),
+        hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours(),
+        minutes =
+          date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes(),
+        seconds =
+          date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+      return `${hours}:${minutes}:${seconds}`;
+    }
   }
   return 'Something went wrong, try again';
 }
@@ -100,3 +109,4 @@ console.log(getReply('What day is it today?'));
 console.log(getReply('What is 3 + 3'));
 console.log(getReply('What is 4 * 12'));
 console.log(getReply('Set a timer for 4 minutes'));
+console.log(getReply('What time is it?'));
