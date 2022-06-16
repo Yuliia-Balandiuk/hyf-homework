@@ -22,7 +22,7 @@ function getReply(command) {
     }
 
     if (command.includes('Add')) {
-      let newToDoItem = command.replace(/(Add) | (to my todo)/g, '');
+      const newToDoItem = command.replace(/(Add) | (to my todo)/g, '');
       toDoListArr.push(newToDoItem);
       return toDoListArr;
     }
@@ -33,8 +33,8 @@ function getReply(command) {
         }`;
     }
     if (command.includes('Remove')) {
-      let toDoItem = command.replace(/(Remove) | (from my todo)/g, '');
-      let indexOfItem = toDoListArr.indexOf(toDoItem);
+      const toDoItem = command.replace(/(Remove) | (from my todo)/g, '');
+      const indexOfItem = toDoListArr.indexOf(toDoItem);
       toDoListArr.splice(indexOfItem, 1);
       return `Removed ${toDoItem} from your todo`;
     }
