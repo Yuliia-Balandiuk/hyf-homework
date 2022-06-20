@@ -1,4 +1,4 @@
-const usersName = [];
+let userName = '';
 const toDoListArr = [];
 
 function getReply(command) {
@@ -6,19 +6,18 @@ function getReply(command) {
     if (command.includes('Hello my name is')) {
       const strToArray = command.split(' ');
       const userName = strToArray[strToArray.length - 1];
-      if (usersName.includes(userName)) {
+      if (userName === strToArray[strToArray.length - 1]) {
         return `We have already met ${userName}`;
       }
-
-      usersName.push(userName);
+      userName = strToArray[strToArray.length - 1];
       return `Nice to meet you ${userName}`;
     }
 
     if (command === 'What is my name') {
-      if (usersName.length === 0) {
+      if (userName.length === 0) {
         return 'You have not said your name yet.';
       }
-      return `Your name is ${usersName[usersName.length - 1]}`;
+      return `Your name is ${userName}`;
     }
 
     if (command.includes('Add')) {
@@ -33,10 +32,7 @@ function getReply(command) {
         }`;
     }
     if (command.includes('Remove')) {
-      const toDoItem = command.replace(/(Remove) | (from my todo)/g, '');
-      const indexOfItem = toDoListArr.indexOf(toDoItem);
-      toDoListArr.splice(indexOfItem, 1);
-      return `Removed ${toDoItem} from your todo`;
+      return removeNote(command);
     }
     if (command === 'What day is it today?') {
       const date = new Date();
@@ -59,20 +55,7 @@ function getReply(command) {
       } ${date.getFullYear()}`;
     }
     if (command.includes('What is')) {
-      const arr = command
-        .replace(/What is/g, '')
-        .trim()
-        .split(' ');
-      if (arr[1] === '+') {
-        result = +arr[0] + +arr[2];
-      } else if (arr[1] === '-') {
-        result = +arr[0] - +arr[2];
-      } else if (arr[1] === '*') {
-        result = +arr[0] * +arr[2];
-      } else if (arr[1] === '/') {
-        result = +arr[0] / +arr[2];
-      }
-      return result;
+      return makeCalculation(command);
     }
     if (command.includes('Set a timer')) {
       const time = command.replace(/(Set a timer for) | (minutes)/g, '');
@@ -91,7 +74,40 @@ function getReply(command) {
       return `${hours}:${minutes}:${seconds}`;
     }
   }
-  return 'Something went wrong, try again';
+  return 'Not the right command, try again';
+}
+
+function removeNote(command) {
+  const toDoItem = command.replace(/(Remove) | (from my todo)/g, '');
+  const indexOfItem = toDoListArr.indexOf(toDoItem);
+  toDoListArr.splice(indexOfItem, 1);
+  return `Removed ${toDoItem} from your todo`;
+}
+
+function makeCalculation(command) {
+  const arr = command
+    .replace(/What is/g, '')
+    .trim()
+    .split(' ');
+  const firstOperand = parseInt(arr[0], 10);
+  const secondOperand = parseInt(arr[2], 10);
+  switch (arr[1]) {
+    case '+':
+      result = firstOperand + secondOperand;
+      break;
+    case '-':
+      result = firstOperand - secondOperand;
+      break;
+    case '*':
+      result = firstOperand * secondOperand;
+      break;
+    case '/':
+      result = firstOperand / secondOperand;
+      break;
+    default:
+      break;
+  }
+  return result;
 }
 
 console.log(getReply(5));
@@ -105,6 +121,7 @@ console.log(getReply('Add fishing to my todo'));
 console.log(getReply('Add singing in the shower to my todo'));
 console.log(getReply('What is on my todo?'));
 console.log(getReply('Remove fishing from my todo'));
+console.log('After removed:', toDoListArr);
 console.log(getReply('What day is it today?'));
 console.log(getReply('What is 3 + 3'));
 console.log(getReply('What is 4 * 12'));
