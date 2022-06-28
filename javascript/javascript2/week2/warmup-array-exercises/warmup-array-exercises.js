@@ -81,13 +81,9 @@ console.log(averageRating);
 // 9. Count the total number of Good, Average and Bad movies using reduce.
 const totalNumber = moviesWithTagKey.reduce(
   (totalRes, currentMovie) => {
-    if (currentMovie.tag === 'Good') {
-      totalRes.goodMovies += 1;
-    } else if (currentMovie.tag === 'Average') {
-      totalRes.averageMovies += 1;
-    } else if (currentMovie.tag === 'Bad') {
-      totalRes.badMovies += 1;
-    }
+    if (currentMovie.tag === 'Good') totalRes.goodMovies++;
+    if (currentMovie.tag === 'Average') totalRes.averageMovies++;
+    if (currentMovie.tag === 'Bad') totalRes.badMovies++;
     return totalRes;
   },
   { goodMovies: 0, averageMovies: 0, badMovies: 0 }
