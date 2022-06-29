@@ -15,7 +15,7 @@ function getSpiritAnimal() {
     'The Dromedary Camel',
     'The German Shepherd',
   ];
-  if (!userNameInput.value) {
+  if (!userNameInput.value || userNameInput.value.trim().length === 0) {
     answerName.innerHTML = 'Please enter your name';
     return;
   }
