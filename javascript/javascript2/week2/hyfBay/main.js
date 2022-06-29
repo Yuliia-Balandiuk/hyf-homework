@@ -24,3 +24,5 @@ function renderProducts(products) {
 }
 
 renderProducts(products);
+
+const searchByName = document.getElementById('search-by-name');
