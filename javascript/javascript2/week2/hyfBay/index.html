@@ -11,7 +11,26 @@
   <main>
     <section class="conteiner header-container">
       <h2>hyfBay</h2>
-      <input type="search" id="search-by-name" name="q" />
+      <input type="search" id="search-by-name" placeholder="Search by name" />
+      <input
+        type="number"
+        id="search-by-price"
+        placeholder="Set maximum price"
+      />
+    </section>
+    <section class="conteiner header-container">
+      <label
+        >Sort products by:
+        <select id="selector" name="products-list">
+          <option value=""></option>
+          <option value="nameAZ">Name A -> Z</option>
+          <option value="nameZA">Name Z -> A</option>
+          <option value="priceMinMax">Price min -> max</option>
+          <option value="priceMaxMin">Price max -> min</option>
+          <option value="ratingMinMax">Rating min -> max</option>
+          <option value="ratingMaxMin">Rating max -> min</option>
+        </select>
+      </label>
     </section>
     <section class="conteiner list-of-products">
       <ul id="productsUl"></ul>
@@ -19,6 +38,4 @@
   </main>
   <script src="hyfBayHelpers.js"></script>
   <script src="main.js"></script>
-  <script src="problem-solving-cardio.js"></script>
-  <script src="spirit-animal.js"></script>
 </body>
