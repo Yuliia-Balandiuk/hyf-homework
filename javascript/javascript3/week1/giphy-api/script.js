@@ -1,4 +1,3 @@
-// numberOfGiphy;
 const gifsSection = document.getElementById('gifs-section');
 const giphNameInput = document.getElementById('giphNameInput');
 const giphNumberInput = document.getElementById('giphNumberInput');
