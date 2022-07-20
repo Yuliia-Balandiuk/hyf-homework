@@ -57,12 +57,16 @@ const selector = document.getElementById('selector');
 selector.addEventListener('change', () => {
   switch (selector.value) {
     case 'nameAZ':
-      const sortedNameAZ = products.sort((a, b) => (a.name > b.name ? 1 : -1));
+      const sortedNameAZ = products.sort((a, b) =>
+        a.name.localeCompare(b.name) > b.name.localeCompare(a.name) ? 1 : -1
+      );
       productsUl.innerHTML = '';
       renderProducts(sortedNameAZ);
       break;
     case 'nameZA':
-      const sortedNameZA = products.sort((a, b) => (a.name < b.name ? 1 : -1));
+      const sortedNameZA = products.sort((a, b) =>
+        a.name.localeCompare(b.name) < b.name.localeCompare(a.name) ? 1 : -1
+      );
       productsUl.innerHTML = '';
       renderProducts(sortedNameZA);
       break;
