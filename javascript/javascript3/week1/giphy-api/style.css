@@ -12,7 +12,8 @@ img {
   max-height: 22rem;
 }
 
-input {
+#giphNameInput,
+#giphNumberInput {
   width: 80%;
   font: inherit;
   padding: 1rem 1.25rem;
@@ -23,7 +24,7 @@ input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-button {
+#giphsSearchBtn {
   margin: 1.25rem 0rem;
   cursor: pointer;
   width: 6.25rem;
@@ -33,7 +34,7 @@ button {
   border-radius: 0.25rem;
 }
 
-button:hover {
+#giphsSearchBtn:hover {
   background-color: #ffffff;
   color: #000000;
 }

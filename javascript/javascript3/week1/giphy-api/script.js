@@ -13,7 +13,7 @@ function getGiphy() {
       .then((data) => {
         gifsSection.innerHTML = '';
         console.log(data);
-        data.data.forEach((el) => {
+        data.data.map((el) => {
           const gifImg = document.createElement('img');
           gifImg.src = el.images.original.url;
           gifsSection.appendChild(gifImg);
