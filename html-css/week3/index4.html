@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The signup form</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div id="logo-box">
+          <img src="./images/clothes-logo.png" alt="logo" />
+        </div>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Collections</li>
+            <li>About us</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section>
+          <h1>Sign up to yourcustomtailor.com</h1>
+        </section>
+        <section>
+          <form action="index4.html" method="get">
+            <h2>Step 4/4 - Payment</h2>
+            <div>
+              <h3>Progress</h3>
+              <div class="progress-box"></div>
+              <p></p>
+            </div>
+
+            <div>
+              <label for="creditcard-name">Name on credit card*</label>
+              <input
+                required
+                type="text"
+                id="creditcard-name"
+                name="creditcard-name"
+              />
+            </div>
+            <div>
+              <label for="card-type">Card type*</label>
+              <select id="card-type" required>
+                <option value="MasterCard">Visa</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="American Express">American Express</option>
+                <option value="Discover">Discover</option>
+                <option value="Diners Club">Diners Club</option>
+                <option value="JCB">JCB</option>
+              </select>
+            </div>
+            <div>
+              <label for="credit-card-number">Credit card number*</label>
+              <input
+                required
+                type="text"
+                maxlength="16"
+                id="credit-card-number"
+                name="credit-card-number"
+              />
+            </div>
+            <div>
+              <label for="expiry-month">Expiry month*</label>
+              <input
+                required
+                type="text"
+                maxlength="2"
+                id="expiry-month"
+                name="expiry-month"
+              />
+            </div>
+            <div>
+              <label for="expiry-year">Expiry year</label>
+              <input
+                required
+                type="text"
+                maxlength="2"
+                name="expiry-year"
+                id="expiry-year"
+              />
+            </div>
+            <div>
+              <label for="cvv">CVV</label>
+              <input type="text" name="cvv" id="cvv" maxlength="3" required />
+            </div>
+            <button id="submit">Submit</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer><div class="container"></div></footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
