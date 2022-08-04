@@ -32,7 +32,9 @@
             <h2>Step 2/4 - How can we reach you?</h2>
             <div>
               <h3>Progress</h3>
-              <div class="progress-box"></div>
+              <div class="progress-box">
+                <div class="step2"></div>
+              </div>
               <p>
                 We will probably need to stay in touch somehow. Let us know how
                 we can reach you?
@@ -41,8 +43,6 @@
             <div>
               <label for="email">Email*</label>
               <input type="email" name="email" id="email" required />
-            </div>
-            <div>
               <label for="phone">Phone</label>
               <input type="tel" name="phone" id="phone" />
             </div>
@@ -54,6 +54,7 @@
                 minlength="10"
                 type="password"
                 name="password"
+                pattern="(?=.*[a-z])(?=.*[A-Z])"
               />
             </div>
             <div>
@@ -64,23 +65,23 @@
                 minlength="10"
                 type="password"
                 name="password2"
+                pattern="(?=.*[a-z])(?=.*[A-Z])"
               />
             </div>
             <div>
               <p>I want to sign up for the newsletter</p>
-              <label for="weekly-news">Weekly news</label>
-              <input
-                type="radio"
-                id="weekly-news"
-                name="newsletter"
-                value="Weekly news"
-              />
-              <label for="monthly-news">Monthly news</label>
-              <input type="radio" name="newsletter" id="monthly-news" />
-              <label for="never-news">Don't send me news</label>
-              <input type="radio" name="newsletter" id="never-news" />
+              <div class="radio-box">
+                <label for="weekly-news" value="Weekly news">Weekly news</label>
+                <input type="radio" id="weekly-news" name="newsletter" />
+                <label for="monthly-news">Monthly news</label>
+                <input type="radio" name="newsletter" id="monthly-news" />
+                <label for="never-news">Don't send me news</label>
+                <input type="radio" name="newsletter" id="never-news" />
+              </div>
             </div>
-            <button>Next step</button>
+            <div class="footer-box steps">
+              <button>Next step</button>
+            </div>
           </form>
         </section>
       </div>

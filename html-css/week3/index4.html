@@ -32,7 +32,9 @@
             <h2>Step 4/4 - Payment</h2>
             <div>
               <h3>Progress</h3>
-              <div class="progress-box"></div>
+              <div class="progress-box">
+                <div class="step4"></div>
+              </div>
               <p></p>
             </div>
 
@@ -60,7 +62,7 @@
               <label for="credit-card-number">Credit card number*</label>
               <input
                 required
-                type="text"
+                type="number"
                 maxlength="16"
                 id="credit-card-number"
                 name="credit-card-number"
@@ -70,7 +72,7 @@
               <label for="expiry-month">Expiry month*</label>
               <input
                 required
-                type="text"
+                type="number"
                 maxlength="2"
                 id="expiry-month"
                 name="expiry-month"
@@ -80,7 +82,7 @@
               <label for="expiry-year">Expiry year</label>
               <input
                 required
-                type="text"
+                type="number"
                 maxlength="2"
                 name="expiry-year"
                 id="expiry-year"
@@ -88,7 +90,7 @@
             </div>
             <div>
               <label for="cvv">CVV</label>
-              <input type="text" name="cvv" id="cvv" maxlength="3" required />
+              <input type="number" name="cvv" id="cvv" maxlength="3" required />
             </div>
             <button id="submit">Submit</button>
           </form>
