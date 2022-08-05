@@ -40,7 +40,7 @@
         <section>
           <form action="index2.html" method="get">
             <h2>Step 1/4 - Tell us who you are?</h2>
-            <div class="progress-container">
+            <div>
               <h3>Progress</h3>
               <div class="progress-box">
                 <div class="step1"></div>
@@ -50,50 +50,46 @@
                 other? Please enter the following:
               </p>
             </div>
-            <div>
-              <label for="first-name">First name*</label>
-              <input type="text" name="first-name" id="first-name" required />
-              <label for="last-name">Last name*</label>
-              <input type="text" name="last-name" id="last-name" required />
-            </div>
-            <div>
-              <label for="country">Country*</label>
-              <select name="country" id="country" required>
-                <option value="Denmark">Denmark</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Norway">Norway</option>
-              </select>
-            </div>
-            <div>
-              <label for="address">Street address*</label>
-              <input type="text" name="address" id="address" required />
-              <label for="post-code">Post code*</label>
-              <input
-                required
-                type="text"
-                maxlength="4"
-                minlength="4"
-                id="post-code"
-                name="post-code"
-              />
-            </div>
-
-            <div class="profile-container">
-              <div>
-                <label for="profile">Profile description</label>
-                <p>
-                  Please provide a short description of yourself to be displayed
-                  on our social community pages.
-                </p>
+            <div class="inputs-wrapper">
+              <div class="grid grid-step1">
+                <label for="first-name">First name*</label>
+                <input type="text" name="first-name" id="first-name" required />
+                <label for="last-name">Last name*</label>
+                <input type="text" name="last-name" id="last-name" required />
+                <label for="country">Country*</label>
+                <select name="country" id="country" required>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Norway">Norway</option>
+                </select>
+                <label for="address">Street address*</label>
+                <input type="text" name="address" id="address" required />
+                <label for="post-code">Post code*</label>
+                <input
+                  required
+                  type="text"
+                  maxlength="4"
+                  minlength="4"
+                  id="post-code"
+                  name="post-code"
+                />
               </div>
-
-              <textarea
-                cols="30"
-                rows="10"
-                id="profile"
-                name="profile"
-                maxlength="500"
-              ></textarea>
+              <div class="profile-container">
+                <div>
+                  <label for="profile">Profile description</label>
+                  <p>
+                    Please provide a short description of yourself to be
+                    displayed on our social community pages.
+                  </p>
+                </div>
+                <textarea
+                  cols="30"
+                  rows="10"
+                  id="profile"
+                  name="profile"
+                  maxlength="500"
+                ></textarea>
+              </div>
             </div>
             <p>
               Use the same address for billing and shipping? Uncheck below to
@@ -115,7 +111,6 @@
         </section>
       </div>
     </main>
-
     <script src="./script.js"></script>
   </body>
 </html>

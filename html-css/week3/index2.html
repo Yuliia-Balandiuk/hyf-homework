@@ -40,33 +40,31 @@
                 we can reach you?
               </p>
             </div>
-            <div>
-              <label for="email">Email*</label>
-              <input type="email" name="email" id="email" required />
-              <label for="phone">Phone</label>
-              <input type="tel" name="phone" id="phone" />
-            </div>
-            <div>
-              <label for="password">Password*</label>
-              <input
-                required
-                id="password"
-                minlength="10"
-                type="password"
-                name="password"
-                pattern="(?=.*[a-z])(?=.*[A-Z])"
-              />
-            </div>
-            <div>
-              <label for="password2">Re-enter Password*</label>
-              <input
-                required
-                id="password2"
-                minlength="10"
-                type="password"
-                name="password2"
-                pattern="(?=.*[a-z])(?=.*[A-Z])"
-              />
+            <div class="inputs-wrapper">
+              <div class="grid grid-step2">
+                <label for="email">Email*</label>
+                <input type="email" name="email" id="email" required />
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" id="phone" />
+                <label for="password">Password*</label>
+                <input
+                  required
+                  id="password"
+                  minlength="10"
+                  type="password"
+                  name="password"
+                  pattern="(?=.*[a-z])(?=.*[A-Z]).*$"
+                />
+                <label for="password2">Re-enter Password*</label>
+                <input
+                  required
+                  id="password2"
+                  minlength="10"
+                  type="password"
+                  name="password2"
+                  pattern="(?=.*[a-z])(?=.*[A-Z]).*$"
+                />
+              </div>
             </div>
             <div>
               <p>I want to sign up for the newsletter</p>
