@@ -39,6 +39,16 @@ async function translateOneByOne() {
   });
 }
 
+function translateOneByOne2() {
+  moveElement(redBox, boxesTargetPositions.redBoxTargetPositions).then(() => {
+    moveElement(blueBox, boxesTargetPositions.blueBoxTargetPositions).then(
+      () => {
+        moveElement(greenBox, boxesTargetPositions.greenBoxTargetPositions);
+      }
+    );
+  });
+}
+
 async function allAtOnePromise() {
   await Promise.all([
     moveElement(redBox, boxesTargetPositions.redBoxTargetPositions),
@@ -49,5 +59,5 @@ async function allAtOnePromise() {
   });
 }
 
-oneByOneBtn.addEventListener('click', translateOneByOne);
+oneByOneBtn.addEventListener('click', translateOneByOne2);
 allAtOneBtn.addEventListener('click', allAtOnePromise);
