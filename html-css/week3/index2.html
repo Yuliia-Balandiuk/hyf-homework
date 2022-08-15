@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The signup form</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div id="logo-box">
+          <img src="./images/clothes-logo.png" alt="logo" />
+        </div>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Collections</li>
+            <li>About us</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section>
+          <h1>Sign up to yourcustomtailor.com</h1>
+        </section>
+        <section>
+          <form action="index3.html" method="get">
+            <h2>Step 2/4 - How can we reach you?</h2>
+            <div>
+              <h3>Progress</h3>
+              <div class="progress-box">
+                <div class="step2"></div>
+              </div>
+              <p>
+                We will probably need to stay in touch somehow. Let us know how
+                we can reach you?
+              </p>
+            </div>
+            <div class="inputs-wrapper">
+              <div class="grid grid-step2">
+                <label for="email">Email*</label>
+                <input type="email" name="email" id="email" required />
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" id="phone" />
+                <label for="password">Password*</label>
+                <input
+                  required
+                  id="password"
+                  minlength="10"
+                  type="password"
+                  name="password"
+                  pattern="(?=.*[a-z])(?=.*[A-Z]).*$"
+                />
+                <label for="password2">Re-enter Password*</label>
+                <input
+                  required
+                  id="password2"
+                  minlength="10"
+                  type="password"
+                  name="password2"
+                  pattern="(?=.*[a-z])(?=.*[A-Z]).*$"
+                />
+              </div>
+            </div>
+            <div>
+              <p>I want to sign up for the newsletter</p>
+              <div class="radio-box">
+                <label for="weekly-news" value="Weekly news">Weekly news</label>
+                <input type="radio" id="weekly-news" name="newsletter" />
+                <label for="monthly-news">Monthly news</label>
+                <input type="radio" name="newsletter" id="monthly-news" />
+                <label for="never-news">Don't send me news</label>
+                <input type="radio" name="newsletter" id="never-news" />
+              </div>
+            </div>
+            <div class="footer-box steps">
+              <button>Next step</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer><div class="container"></div></footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
