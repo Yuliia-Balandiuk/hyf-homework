@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section>
-      <h1>Shopping cart</h1>
+    <main>
+      <section>
+        <h1>Shopping cart</h1>
 
-      <div>
-        <p id="userName"></p>
-      </div>
-      <div>
-        <p id="totalAmount"></p>
-      </div>
-    </section>
-    <div id="productsWrapper"></div>
-
+        <div>
+          <p id="userName"></p>
+        </div>
+        <div>
+          <p id="totalAmount"></p>
+        </div>
+        <div>
+          <select name="currencySelect" id="currencySelect">
+            <option value="DKK">DKK</option>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="audi">UAH</option>
+          </select>
+        </div>
+      </section>
+      <div id="productsWrapper"></div>
+    </main>
     <script src="./script.js"></script>
   </body>
 </html>

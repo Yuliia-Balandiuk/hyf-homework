@@ -3,12 +3,23 @@ const totalAmountInnerHtml = document.getElementById('totalAmount');
 const productsWrapper = document.getElementById('productsWrapper');
 
 class Product {
-  constructor(name, price) {
+  constructor(name, price, currentCurrency = 'DKK') {
     this.name = name;
     this.price = price;
+    this.currentCurrency = currentCurrency;
   }
 
-  convertToCurrency() {}
+  convertToCurrency() {
+    fetch(
+      `https://v6.exchangerate-api.com/v6/4515c0a592b7b58ba555a2ea/latest/DKK`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const rate = data.conversion_rates;
+        console.log((5 * rate[currentCurrency]).toFixed(2));
+        return (this.price * rate[currentCurrency]).toFixed(2);
+      });
+  }
 }
 
 class ShoppingCart {
@@ -96,3 +107,8 @@ console.log(bbbb);
 
 shoppingCart.getUser();
 shoppingCart.renderProducts();
+
+///////////////////////////////////////
+
+const currencySelect = document.getElementById('currencySelect');
+currencySelect.addEventListener('change');
