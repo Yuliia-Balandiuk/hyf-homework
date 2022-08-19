@@ -1,6 +1,7 @@
 const userNameInnerHtml = document.getElementById('userName');
 const totalAmountInnerHtml = document.getElementById('totalAmount');
 const productsWrapper = document.getElementById('productsWrapper');
+const productsBox = document.createElement('div');
 
 class Product {
   constructor(name, price, currentCurrency = 'DKK') {
@@ -9,14 +10,13 @@ class Product {
     this.currentCurrency = currentCurrency;
   }
 
-  convertToCurrency() {
+  convertToCurrency(currentCurrency) {
     fetch(
       `https://v6.exchangerate-api.com/v6/4515c0a592b7b58ba555a2ea/latest/DKK`
     )
       .then((response) => response.json())
       .then((data) => {
         const rate = data.conversion_rates;
-        console.log((5 * rate[currentCurrency]).toFixed(2));
         return (this.price * rate[currentCurrency]).toFixed(2);
       });
   }
@@ -57,7 +57,6 @@ class ShoppingCart {
 
   renderProducts(products) {
     this.products.forEach((item) => {
-      const productsBox = document.createElement('div');
       productsWrapper.appendChild(productsBox);
       const productName = document.createElement('p');
       productsBox.appendChild(productName);
@@ -84,26 +83,26 @@ class ShoppingCart {
 }
 
 const shoppingCart = new ShoppingCart();
-const flatscreen = new Product('flat-screen', 5000);
-const freezer = new Product('freezer', 4500);
-const hairDryer = new Product('hair-dryer', 650);
+const flatscreen = new Product('Flat screen', 5000);
+
+const freezer = new Product('Freezer', 4500);
+const freezer2 = new Product('Freezer', 4500);
+const hairDryer = new Product('Hair dryer', 650);
 
 shoppingCart.addProduct(flatscreen);
 shoppingCart.addProduct(freezer);
+shoppingCart.addProduct(freezer2);
 shoppingCart.addProduct(hairDryer);
 console.log(shoppingCart.products);
 
-shoppingCart.removeProduct(flatscreen);
+shoppingCart.removeProduct(freezer2);
 console.log(shoppingCart.products);
 
-const aaa = shoppingCart.searchProduct();
-console.log(aaa);
+const total = shoppingCart.getTotal();
+console.log(total);
 
-const tot = shoppingCart.getTotal();
-console.log(tot);
-
-const bbbb = shoppingCart.searchProduct('hair-dryer');
-console.log(bbbb);
+const searcher = shoppingCart.searchProduct('Hair dryer');
+console.log(searcher);
 
 shoppingCart.getUser();
 shoppingCart.renderProducts();
@@ -111,4 +110,12 @@ shoppingCart.renderProducts();
 ///////////////////////////////////////
 
 const currencySelect = document.getElementById('currencySelect');
-currencySelect.addEventListener('change');
+currencySelect.addEventListener('change', () => {
+  productsBox.innerHTML = '';
+  shoppingCart.renderProducts();
+  for (let i = 0; i < shoppingCart.products.length; i++) {
+    shoppingCart.products[i].currentCurrency = currencySelect.value;
+    shoppingCart.products[i].convertToCurrency(this.currentCurrency);
+  }
+  console.log('!!!!!!!!!!!', shoppingCart.products);
+});
