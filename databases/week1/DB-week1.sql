@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS `hyf_db`;
-
 CREATE DATABASE IF NOT EXISTS `hyf_db`;
-
 USE `hyf_db`;
-
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -11,13 +8,11 @@ CREATE TABLE `user` (
   `phone` varchar(255) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 CREATE TABLE `status` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 CREATE TABLE `task` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -31,10 +26,6 @@ CREATE TABLE `task` (
   CONSTRAINT `fk_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-
--- Users
 insert into user (id, name, email, phone) values (1, 'Aarika Ellingworth', 'aellingworth0@harvard.edu', '483-396-8795');
 insert into user (id, name, email, phone) values (2, 'Pren Goldsworthy', 'pgoldsworthy1@spotify.com', '635-572-8467');
 insert into user (id, name, email, phone) values (3, 'Pablo Kisbee', 'pkisbee2@lulu.com', '790-962-8683');
@@ -47,14 +38,9 @@ insert into user (id, name, email, phone) values (9, '王秀英', 'wang.xiuying@
 insert into user (id, name, email, phone) values (10, 'إلياس', 'elias@github.com', '202-517-6983');
 insert into user (id, name, email, phone) values (11, 'Donald Duck', 'donald@duck.com', NULL);
 insert into user (id, name, email, phone) values (12, 'Adam Smith', 'smith@bla.com', NULL);
-
--- Statuses
 insert into status (id, name) values (1, 'Not started');
 insert into status (id, name) values (2, 'In progress');
 insert into status (id, name) values (3, 'Done');
-
-
--- Tasks
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (1, 'Wash clothes', 'Title says it all.', '2017-10-25 06:54:16', '2017-10-15 13:05:09', null, 2, 1);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (2, 'Become a billionaire', 'This should not take long, just invent a time machine, travel back to 2010 and buy bitcoin', '2017-09-26 03:06:46', '2017-10-08 06:14:31', '2017-12-22 20:58:03', 3, 6);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (3, 'Plan meeting with London office', 'We will probably use skype', '2017-10-04 18:07:37', '2017-10-14 16:01:31', '2017-12-05 19:42:15', 2, 8);
@@ -90,4 +76,3 @@ insert into task (id, title, description, created, updated, due_date, status_id,
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (33, 'Hang up paintings in living room', NULL, '2017-09-10 05:36:11', '2017-10-09 17:40:42', null, 3, 4);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (34, 'Buy plane ticket to Auckland', 'Check prices online first!', '2017-09-05 09:07:22', '2017-10-15 09:36:06', '2017-12-07 11:10:05', 1, 9);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (35, 'Learn about NoSQL databases', 'MongoDB, CouchDB, etc.', '2017-10-20 01:41:53', '2017-10-04 07:19:56', '2017-12-23 10:13:42', 2, NULL);
-
