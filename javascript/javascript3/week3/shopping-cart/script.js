@@ -17,7 +17,8 @@ class Product {
       .then((response) => response.json())
       .then((data) => {
         const rate = data.conversion_rates;
-        return (this.price * rate[currentCurrency]).toFixed(2);
+        this.price = (this.price * rate[currentCurrency]).toFixed(2);
+        console.log('------------RATE___________', rate);
       });
   }
 }
@@ -110,12 +111,34 @@ shoppingCart.renderProducts();
 ///////////////////////////////////////
 
 const currencySelect = document.getElementById('currencySelect');
+// currencySelect.addEventListener('change', () => {
+//   totalAmountInnerHtml.innerHTML = '';
+//   productsBox.innerHTML = '';
+//   for (let i = 0; i < shoppingCart.products.length; i++) {
+//     shoppingCart.products[i].currentCurrency = currencySelect.value;
+//     shoppingCart.products[i].convertToCurrency(currentCurrency);
+//   }
+//   shoppingCart.renderProducts();
+// });
+
 currencySelect.addEventListener('change', () => {
+  totalAmountInnerHtml.innerHTML = '';
   productsBox.innerHTML = '';
-  shoppingCart.renderProducts();
   for (let i = 0; i < shoppingCart.products.length; i++) {
     shoppingCart.products[i].currentCurrency = currencySelect.value;
-    shoppingCart.products[i].convertToCurrency(this.currentCurrency);
+    console.log(
+      '---currentCurrency---',
+      shoppingCart.products[i].currentCurrency
+    );
   }
-  console.log('!!!!!!!!!!!', shoppingCart.products);
+
+  for (let i = 0; i < shoppingCart.products.length; i++) {
+    shoppingCart.products[i].convertToCurrency(
+      shoppingCart.products[i].currentCurrency
+    );
+
+    console.log('---price---', shoppingCart.products[i].price);
+  }
+
+  shoppingCart.renderProducts();
 });
