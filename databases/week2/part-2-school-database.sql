@@ -28,7 +28,6 @@ INSERT INTO `student` (`id`, `name`, `email`, `phone`, `class_id`)
 VALUES (1, 'Yuliia', 'yuliia@gmail.com', '+4560686260',2);
 INSERT INTO `student` (`id`, `name`, `email`, `phone`, `class_id`)
 VALUES (2, 'Olga', 'olga@gmail.com', '+4544557733',3);
-
 CREATE INDEX `index_name` ON `student` (`name`);
 ALTER TABLE `student`
 ADD `status` ENUM ('not-started', 'ongoing', 'finished') NOT NULL;
