@@ -1,4 +1,4 @@
-export const ToDoItems = [
+export const toDoItems = [
   {
     id: 1,
     description: 'Get out of bed',

@@ -1,16 +1,16 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
-import { ToDoItems } from '../data';
+import { toDoItems } from '../data';
 
 const ToDoList = () => {
   return (
     <div>
-      {ToDoItems.map((ToDoItems) => (
+      {toDoItems.map((item) => (
         <ToDoItem
-          key={ToDoItems.id}
-          id={ToDoItems.id}
-          description={ToDoItems.description}
-          deadline={ToDoItems.deadline}
+          key={item.id}
+          id={item.id}
+          description={item.description}
+          deadline={item.deadline}
         />
       ))}
     </div>
