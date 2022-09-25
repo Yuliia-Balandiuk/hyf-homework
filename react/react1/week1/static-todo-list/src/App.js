@@ -2,14 +2,7 @@
 import ToDoWrapper from './components/ToDoWrapper';
 
 function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>Todo list</p>
-      </header>
-      <ToDoWrapper />
-    </div>
-  );
+  return <ToDoWrapper />;
 }
 
 export default App;

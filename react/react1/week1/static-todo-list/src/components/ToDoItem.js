@@ -4,9 +4,9 @@ const ToDoItem = (props) => {
   console.log(ToDoItem);
   return (
     <div>
-      <p>{props.id}</p>
-      <p>{props.description}</p>
-      <p>{props.deadline}</p>
+      <p>
+        {props.id}. {props.description}, {props.deadline}
+      </p>
     </div>
   );
 };

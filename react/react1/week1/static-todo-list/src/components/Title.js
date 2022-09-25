@@ -1,13 +1,7 @@
 import React from 'react';
 
 const Title = () => {
-  return (
-    <div>
-      <div>n.</div>
-      <div>Description</div>
-      <div>Deadline</div>
-    </div>
-  );
+  return <p>Todo list</p>;
 };
 
 export default Title;
