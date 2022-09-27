@@ -25,6 +25,21 @@ app.get('/search', (req, res) => {
   }
 });
 
+app.get('/documents/:id', (req, res) => {
+  const param = parseInt(req.params.id);
+  const isParam = documents.some(
+    (document) => document.id === Number(req.params.id)
+  );
+  if (isParam) {
+    const result = documents.filter((document) => document.id === param);
+    res.send(result);
+  } else {
+    res.status(404).json({ error: 'Record not found' });
+  }
+});
+
+app.post('/search', (req, res) => {});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
