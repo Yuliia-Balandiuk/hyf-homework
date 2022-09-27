@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ToDoItem = (props) => {
-  console.log(ToDoItem);
   return (
     <div>
       <p>

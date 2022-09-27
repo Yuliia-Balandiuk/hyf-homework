@@ -1,8 +1,8 @@
-// import './App.css';
+import React from 'react';
 import ToDoWrapper from './components/ToDoWrapper';
 
-function App() {
+const App = () => {
   return <ToDoWrapper />;
-}
+};
 
 export default App;
