@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS task4;
+USE task4;
+CREATE TABLE `user` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(255) NOT NULL,
+  `last_name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NULL, 
+  `address_id` INT (10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE `address` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `city` VARCHAR(255) NOT NULL,
+  `street` VARCHAR(255) NOT NULL,
+  `zip_code` VARCHAR(255) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+CREATE TABLE `product` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `description` text NOT NULL,
+  `price` DECIMAL(5,2) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+CREATE TABLE `order` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT(10) UNSIGNED NOT NULL,
+  `date` DATE NOT NULL,
+  `product_id` INT(10) UNSIGNED NOT NULL,
+   PRIMARY KEY (`id`),
+   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+   CONSTRAINT `fk_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
