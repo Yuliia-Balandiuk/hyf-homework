@@ -30,6 +30,7 @@ app.get('/documents/:id', (req, res) => {
   const isParam = documents.some(
     (document) => document.id === Number(req.params.id)
   );
+
   if (isParam) {
     const result = documents.filter((document) => document.id === param);
     res.send(result);
@@ -38,7 +39,6 @@ app.get('/documents/:id', (req, res) => {
   }
 });
 
-///////////////////////
 app.post('/search', async (req, res) => {
   try {
     const body = req.body.fields;
