@@ -10,32 +10,38 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-  const query = req.query.q;
+  try {
+    const query = req.query.q;
 
-  if (query) {
-    const result = documents.filter((element) =>
-      Object.values(element).some((item) => String(item).includes(query))
-    );
-    if (result.length === 0) {
-      res.status(404).json({ error: 'Record not found' });
+    if (query) {
+      const result = documents.filter((element) =>
+        Object.values(element).some((item) => String(item).includes(query))
+      );
+      if (result.length === 0) {
+        res.status(200).json({ message: 'Record not found' });
+      }
+      res.send(result);
+    } else {
+      res.send(documents);
     }
-    res.send(result);
-  } else {
-    res.send(documents);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
   }
 });
 
 app.get('/documents/:id', (req, res) => {
-  const param = parseInt(req.params.id);
-  const isParam = documents.some(
-    (document) => document.id === Number(req.params.id)
-  );
+  try {
+    const param = parseInt(req.params.id);
+    const isParam = documents.some((document) => document.id === param);
 
-  if (isParam) {
-    const result = documents.filter((document) => document.id === param);
-    res.send(result);
-  } else {
-    res.status(404).json({ error: 'Record not found' });
+    if (isParam) {
+      const result = documents.filter((document) => document.id === param);
+      res.send(result);
+    } else {
+      res.status(404).json({ error: 'Record not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
   }
 });
 
