@@ -1,22 +1,24 @@
-function App() {
+import styled from 'styled-components';
+import Timer from './components/Timer';
+import Title from './components/Title';
+import TodoList from './components/TodoList';
+
+const Wrapper = styled.div`
+  align-items: center;
+  background: #d5ffe3;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Title />
+      <Timer />
+      <TodoList />
+    </Wrapper>
   );
-}
+};
 
 export default App;
