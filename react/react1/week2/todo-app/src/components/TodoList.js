@@ -1,15 +1,32 @@
+import { useState } from 'react';
 import { todos } from '../data';
 import Button from './Button';
 import TodoRow from './TodoRow';
 
 const TodoList = () => {
-  // useState like arr, add or remove elem
+  const [todosList, setTodosList] = useState(todos);
+  const [updateList, setUpdateList] = useState(todosList);
+
+  function addTodo() {
+    setTodosList(
+      todosList.concat({
+        id: todosList.length + 1,
+        description: `random text with id: ${todosList.length + 1}`,
+      })
+    );
+    console.log(todosList);
+  }
+
+  function updateTodoList(index) {
+    setUpdateList(updateList.splice(index, 1));
+  }
+
   return (
     <>
-      <Button bigSize text='Add todo' />
+      <Button onClick={addTodo} bigSize text='Add todo' />
       <div>
-        {todos.map((item, i) => (
-          <TodoRow key={i} item={item} />
+        {todosList.map((item, index) => (
+          <TodoRow key={index} item={item} onClick={updateTodoList} />
         ))}
       </div>
     </>

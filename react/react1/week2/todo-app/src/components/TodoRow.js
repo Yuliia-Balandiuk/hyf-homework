@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
 import TodoCheckbox from './TodoCheckbox';
-import { useState } from 'react';
 import Button from './Button';
 
 const TodoRowBox = styled.div`
@@ -9,14 +9,13 @@ const TodoRowBox = styled.div`
   align-items: center;
 `;
 
-const TodoRow = ({ item }) => {
+const TodoRow = ({ item, index, onClick }) => {
   const [checked, setChecked] = useState(false);
-
   return (
     <TodoRowBox>
       <TodoCheckbox checked={checked} setChecked={setChecked} />
       <TodoItem checked={checked} description={item.description} />
-      <Button text='Delete' />
+      <Button index={index} text='Delete' onClick={onClick} />
     </TodoRowBox>
   );
 };
