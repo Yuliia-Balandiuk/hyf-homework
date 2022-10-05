@@ -5,20 +5,20 @@ import TodoRow from './TodoRow';
 
 const TodoList = () => {
   const [todosList, setTodosList] = useState(todos);
-  const [updateList, setUpdateList] = useState(todosList);
+
+  const newTodo = {
+    id: todosList.length + 1,
+    description: `random text with id: ${todosList.length + 1}`,
+  };
 
   function addTodo() {
-    setTodosList(
-      todosList.concat({
-        id: todosList.length + 1,
-        description: `random text with id: ${todosList.length + 1}`,
-      })
-    );
-    console.log(todosList);
+    setTodosList([...todosList, newTodo]);
   }
 
-  function updateTodoList(index) {
-    setUpdateList(updateList.splice(index, 1));
+  function updateTodoList(id) {
+    const updetedList = todosList.filter((el) => el.id !== id);
+
+    setTodosList(updetedList);
   }
 
   return (
@@ -26,7 +26,12 @@ const TodoList = () => {
       <Button onClick={addTodo} bigSize text='Add todo' />
       <div>
         {todosList.map((item, index) => (
-          <TodoRow key={index} item={item} onClick={updateTodoList} />
+          <TodoRow
+            key={index}
+            index={index}
+            item={item}
+            updateTodoList={updateTodoList}
+          />
         ))}
       </div>
     </>
