@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Timer from './components/Timer';
-import Title from './components/Title';
 import TodoList from './components/TodoList';
 
 const Wrapper = styled.div`
@@ -14,7 +13,6 @@ const Wrapper = styled.div`
 const App = () => {
   return (
     <Wrapper>
-      <Title />
       <Timer />
       <TodoList />
     </Wrapper>

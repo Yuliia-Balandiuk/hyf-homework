@@ -13,7 +13,9 @@ const ButtonUI = styled.button`
   }
 `;
 
-const Button = ({ text, bigSize, onClick }) => {
+const Button = (props) => {
+  const { text, bigSize, onClick } = props;
+
   return (
     <ButtonUI bigSize={bigSize} text={text} onClick={onClick}>
       {text}

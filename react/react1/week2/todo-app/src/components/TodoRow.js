@@ -10,7 +10,7 @@ const TodoRowBox = styled.div`
 `;
 
 const TodoRow = (props) => {
-  const { item, index, updateTodoList } = props;
+  const { item, deleteTodoList } = props;
 
   const [checked, setChecked] = useState(false);
 
@@ -18,11 +18,7 @@ const TodoRow = (props) => {
     <TodoRowBox>
       <TodoCheckbox checked={checked} setChecked={setChecked} />
       <TodoItem checked={checked} description={item.description} />
-      <Button
-        index={index}
-        text='Delete'
-        onClick={() => updateTodoList(item.id)}
-      />
+      <Button text='Delete' onClick={() => deleteTodoList(item.id)} />
     </TodoRowBox>
   );
 };
