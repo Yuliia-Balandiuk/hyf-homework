@@ -4,6 +4,8 @@ const ButtonUI = styled.button`
   cursor: pointer;
   height: 2.5rem;
   width: ${(props) => (props.bigSize ? '9rem' : '5rem')};
+  margin-left: 1rem;
+  margin-left: ${(props) => (props.marinLeft ? '1rem' : 'none')};
   font-size: 1rem;
   background: #1d6e6e;
   border: none;
@@ -13,9 +15,16 @@ const ButtonUI = styled.button`
   }
 `;
 
-const Button = ({ text, bigSize, onClick }) => {
+const Button = (props) => {
+  const { text, bigSize, onClick, marinLeft } = props;
+
   return (
-    <ButtonUI bigSize={bigSize} text={text} onClick={onClick}>
+    <ButtonUI
+      bigSize={bigSize}
+      marinLeft={marinLeft}
+      onClick={onClick}
+      text={text}
+    >
       {text}
     </ButtonUI>
   );
