@@ -7,12 +7,13 @@ const DescriptionWrapper = styled.div`
 
 const AddTodo = ({ newTodo, setNewTodo }) => {
   return (
-    <DescriptionWrapper
-      value={newTodo}
-      onChange={(e) => setNewTodo(e.target.value)}
-    >
+    <DescriptionWrapper>
       <p>Todo description</p>
-      <input type='text'></input>
+      <input
+        type='text'
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+      ></input>
     </DescriptionWrapper>
   );
 };

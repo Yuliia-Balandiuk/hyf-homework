@@ -4,7 +4,9 @@ const Text = styled.p`
   text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
 `;
 
-const TodoItem = ({ checked, description, deadline }) => {
+const TodoItem = (props) => {
+  const { checked, description, deadline } = props;
+
   return (
     <>
       <Text checked={checked}>

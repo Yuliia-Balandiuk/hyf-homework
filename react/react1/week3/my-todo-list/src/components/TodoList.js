@@ -1,21 +1,34 @@
-import { useState } from 'react';
-import { todos } from '../data';
+import { useState, useEffect } from 'react';
 import Button from './Button';
-import Calendar from './Calendar';
 import TodoRow from './TodoRow';
 import AddTodo from './AddTodo';
+import Calendar from './Calendar';
+import BlackBorder from './BorderComponent';
 
 const TodoList = () => {
-  const [todosList, setTodosList] = useState(todos);
-  const [newTodo, setNewTodo] = useState('');
   const [date, setDate] = useState('');
+  const [newTodo, setNewTodo] = useState('');
+  const [todosList, setTodosList] = useState([]);
+
+  const API_URL =
+    'https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw';
+
+  const FetchApi = () => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((result) => setTodosList(result));
+  };
+
+  useEffect(() => {
+    FetchApi();
+  }, []);
 
   let uniqId = Math.random().toString(16).slice(2);
 
   const newTodoItem = {
     id: uniqId,
-    description: newTodo,
     deadline: date,
+    description: newTodo,
   };
 
   function addTodo() {
@@ -34,12 +47,18 @@ const TodoList = () => {
       <Calendar date={date} setDate={setDate} />
       <Button onClick={addTodo} bigSize text='Add todo' />
       <div>
-        {todosList.map((item) => (
-          <TodoRow
-            item={item}
-            key={item.id}
-            deleteTodoList={() => deleteTodoList(item.id)}
-          />
+        {todosList.map((todo) => (
+          <BlackBorder>
+            <TodoRow
+              todo={todo}
+              key={todo.id}
+              todosList={todosList}
+              deadline={todo.deadline}
+              setTodosList={setTodosList}
+              description={todo.description}
+              deleteTodoList={() => deleteTodoList(todo.id)}
+            />
+          </BlackBorder>
         ))}
       </div>
     </>
