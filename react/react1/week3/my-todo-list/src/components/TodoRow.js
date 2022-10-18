@@ -6,7 +6,9 @@ import TodoCheckbox from './TodoCheckbox';
 
 const TodoRowBox = styled.div`
   display: flex;
+  padding: 0 2rem;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const TodoRow = (props) => {
@@ -14,7 +16,6 @@ const TodoRow = (props) => {
     id,
     todo,
     deadline,
-    marinLeft,
     todosList,
     description,
     setTodosList,
@@ -42,39 +43,39 @@ const TodoRow = (props) => {
 
   return (
     <TodoRowBox>
-      <TodoCheckbox checked={checked} setChecked={setChecked} />
-      {!edit ? (
-        <TodoItem
-          id={id}
-          checked={checked}
-          deadline={deadline}
-          description={description}
-        />
-      ) : (
-        <input
-          type='text'
-          value={updatedDesc}
-          onChange={(e) => setUpdatedDesc(e.target.value)}
-        />
-      )}
-      <Button
-        text='Delete'
-        marinLeft={marinLeft}
-        onClick={() => deleteTodoList(id)}
-      />
-      {!edit ? (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <TodoCheckbox checked={checked} setChecked={setChecked} />
+        {!edit ? (
+          <TodoItem
+            id={id}
+            checked={checked}
+            deadline={deadline}
+            description={description}
+          />
+        ) : (
+          <input
+            type='text'
+            value={updatedDesc}
+            onChange={(e) => setUpdatedDesc(e.target.value)}
+          />
+        )}
+      </div>
+      <div>
         <Button
-          text='Edit'
-          marinLeft={marinLeft}
-          onClick={() => editTodo(id)}
+          text='Delete'
+          marinLeft='1rem'
+          onClick={() => deleteTodoList(id)}
         />
-      ) : (
-        <Button
-          text='Update'
-          marinLeft={marinLeft}
-          onClick={() => updateTodo(todo.id)}
-        />
-      )}
+        {!edit ? (
+          <Button text='Edit' marinLeft='1rem' onClick={() => editTodo(id)} />
+        ) : (
+          <Button
+            text='Update'
+            marinLeft='1rem'
+            onClick={() => updateTodo(todo.id)}
+          />
+        )}
+      </div>
     </TodoRowBox>
   );
 };

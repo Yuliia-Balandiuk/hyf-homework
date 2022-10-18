@@ -16,7 +16,10 @@ const TodoList = () => {
   const FetchApi = () => {
     fetch(API_URL)
       .then((response) => response.json())
-      .then((result) => setTodosList(result));
+      .then((result) => setTodosList(result))
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   useEffect(() => {
