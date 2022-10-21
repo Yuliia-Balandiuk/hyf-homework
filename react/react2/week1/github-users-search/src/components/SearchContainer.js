@@ -1,22 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { SearchInput } from './UI';
+import UserContext from './UserContext';
 import UserRow from './UserRow';
 
 const SearchContainer = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const fetchUsers = async (query) => {
-    setLoading(true);
-    const API_URL = `https://api.github.com/search/users?q=${query}`;
-    await fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => setUsers(data.items))
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    setLoading(false);
-  };
+  const { users, loading, error, fetchUsers } = useContext(UserContext);
 
   return (
     <>
@@ -26,6 +14,7 @@ const SearchContainer = () => {
         onChange={(e) => fetchUsers(e.target.value)}
       />
       {loading && <p>LOADING ... </p>}
+      {error && <p>{error}</p>}
       {!users || users.length === 0 ? (
         <div>No results</div>
       ) : (

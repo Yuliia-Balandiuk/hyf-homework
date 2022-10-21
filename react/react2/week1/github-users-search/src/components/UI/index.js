@@ -14,6 +14,7 @@ export const Title = styled.h1`
 export const SearchInput = styled.input`
   font-size: 1rem;
   font-family: inherit;
+  padding-left: 1rem;
   background: papayawhip;
   border: 0.1rem solid #323045;
   border-radius: 3rem 8rem;
