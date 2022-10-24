@@ -4,8 +4,9 @@ const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isLimit, setIsLimit] = useState(false);
 
   const fetchUsers = async (query) => {
     setLoading(true);
@@ -18,7 +19,16 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ users, loading, error, fetchUsers }}>
+    <UserContext.Provider
+      value={{
+        users,
+        loading,
+        error,
+        isLimit,
+        setIsLimit,
+        fetchUsers,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

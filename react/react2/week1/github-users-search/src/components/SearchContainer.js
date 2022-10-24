@@ -4,7 +4,7 @@ import UserContext from './UserContext';
 import UserRow from './UserRow';
 
 const SearchContainer = () => {
-  const { users, loading, error, fetchUsers } = useContext(UserContext);
+  const { users, loading, fetchUsers, isLimit } = useContext(UserContext);
 
   return (
     <>
@@ -14,7 +14,15 @@ const SearchContainer = () => {
         onChange={(e) => fetchUsers(e.target.value)}
       />
       {loading && <p>LOADING ... </p>}
-      {error && <p>{error}</p>}
+      {isLimit && (
+        <p
+          style={{
+            color: 'red',
+          }}
+        >
+          ERROR: You have exceeded the request limit
+        </p>
+      )}
       {!users || users.length === 0 ? (
         <div>No results</div>
       ) : (
