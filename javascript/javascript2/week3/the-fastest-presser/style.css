@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: pink;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 25rem;
+  height: 700px;
+  text-align: center;
+  border: 0.125rem solid black;
+  border-radius: 1.25rem;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#resultBox {
+  display: flex;
+  justify-content: space-around;
+}
